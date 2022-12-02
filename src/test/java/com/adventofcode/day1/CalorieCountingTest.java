@@ -9,12 +9,22 @@ class CalorieCountingTest {
     private static final String FILE_NAME = "day1";
 
     @Test
-    void shouldReturnSecondElfTotalCalories() {
+    void shouldReturnMaxTotalCaloriesOfElf() {
         CalorieCounting calorieCounting = new CalorieCounting();
         String inputFile = Constants.TEST_FOLDER_PATH + FILE_NAME;
 
-        long result = calorieCounting.solve(inputFile);
+        long result = calorieCounting.getMaxCalorieCountOfElve(inputFile);
 
         Assertions.assertEquals(15, result);
+    }
+
+    @Test
+    void shouldReturnTheSumOfCaloriesOfTopThreeElves() {
+        CalorieCounting calorieCounting = new CalorieCounting();
+        String inputFile = Constants.TEST_FOLDER_PATH + FILE_NAME;
+
+        long result = calorieCounting.getSumOfCaloriesOfTopThreeElves(inputFile);
+
+        Assertions.assertEquals(25, result);
     }
 }
