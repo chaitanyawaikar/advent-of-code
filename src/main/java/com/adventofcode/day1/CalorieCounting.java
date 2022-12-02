@@ -55,5 +55,6 @@ public class CalorieCounting {
         CalorieCounting calorieCounting = new CalorieCounting();
 
         System.out.println(calorieCounting.getMaxCalorieCountOfElve(INPUT_FILE));
+        System.out.println(calorieCounting.getSumOfCaloriesOfTopThreeElves(INPUT_FILE));
     }
 }
