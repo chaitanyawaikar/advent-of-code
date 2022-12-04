@@ -1,11 +1,13 @@
 package com.adventofcode.day3;
 
+import com.adventofcode.util.constants.Constants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RucksackReorganizationTest {
 
+    private static final String FILE_NAME = "day3";
     RucksackReorganization rucksackReorganization = new RucksackReorganization();
 
     @Test
@@ -36,5 +38,12 @@ class RucksackReorganizationTest {
         assertEquals(22, rucksackReorganization.calculateItemPriority("wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn"));
         assertEquals(20, rucksackReorganization.calculateItemPriority("ttgJtRGJQctTZtZT"));
         assertEquals(19, rucksackReorganization.calculateItemPriority("CrZsJsPPZsGzwwsLwLmpwMDw"));
+    }
+
+    @Test
+    public void calculateSumOfPrioritiesOfEachThreeElfGroups() {
+        String inputFile = Constants.TEST_FOLDER_PATH + FILE_NAME;
+        long result = rucksackReorganization.calculateSumOfPrioritiesOfEachThreeElfGroups(inputFile);
+        assertEquals(70, result);
     }
 }

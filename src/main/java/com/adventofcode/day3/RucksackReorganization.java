@@ -9,13 +9,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static com.adventofcode.util.CollectionsUtilities.partitionBasedOnSize;
 import static com.adventofcode.util.constants.Constants.INPUT_FOLDER_PATH;
 
 public class RucksackReorganization {
 
     private final static String INPUT_FILE = INPUT_FOLDER_PATH + "day3";
 
-    private long calculateSumOfPriorities(String inputFile) {
+    // Part 1 Implementation
+    public long calculateSumOfPriorities(String inputFile) {
         List<String> inputData = FileReader.readInputFile(inputFile);
 
         return inputData
@@ -28,10 +30,7 @@ public class RucksackReorganization {
     long calculateItemPriority(String inputLine) {
         return getCommonItemFromRucksacks(inputLine)
                 .chars()
-                .map(c -> {
-                    if (Character.isLowerCase(c)) return c - 'a' + 1;
-                    else return c - 'A' + 27;
-                })
+                .map(this::calculateScoreOfCharacter)
                 .sum();
     }
 
@@ -59,10 +58,38 @@ public class RucksackReorganization {
         return resultString.toString();
     }
 
+    // Part 2 Implementation
+    public long calculateSumOfPrioritiesOfEachThreeElfGroups(String inputFile) {
+        List<String> inputData = FileReader.readInputFile(inputFile);
+        int groupBySize = 3;
+
+        return partitionBasedOnSize(inputData, groupBySize)
+                .stream()
+                .mapToInt(listOfThreeStrings -> {
+                    List<Set<Character>> listOfSets = listOfThreeStrings
+                            .stream()
+                            .map(str -> str.chars().mapToObj(ch -> (char) ch).collect(Collectors.toSet()))
+                            .collect(Collectors.toList());
+
+                    Set<Character> firstSet = listOfSets.get(0);
+                    listOfSets
+                            .forEach(firstSet::retainAll);
+
+                    return firstSet.stream().mapToInt(this::calculateScoreOfCharacter).sum();
+                }).sum();
+    }
+
+    private int calculateScoreOfCharacter(int c) {
+        if (Character.isLowerCase(c)) return c - 'a' + 1;
+        else return c - 'A' + 27;
+    }
 
     public static void main(String[] args) {
         RucksackReorganization calculator = new RucksackReorganization();
         long sum = calculator.calculateSumOfPriorities(INPUT_FILE);
         System.out.println(sum);
+
+        long sumPart2 = calculator.calculateSumOfPrioritiesOfEachThreeElfGroups(INPUT_FILE);
+        System.out.println(sumPart2);
     }
 }
