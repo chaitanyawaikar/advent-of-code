@@ -11,6 +11,19 @@ public enum GameOutcome {
         this.value = value;
     }
 
+    public static GameOutcome fromString(String result) {
+        switch (result) {
+            case "X":
+                return GameOutcome.LOST;
+            case "Y":
+                return GameOutcome.DRAW;
+            case "Z":
+                return GameOutcome.WON;
+            default:
+                throw new IllegalArgumentException(String.format("Illegal outcome %s", result));
+        }
+    }
+
     public int getScore() {
         return value;
     }
