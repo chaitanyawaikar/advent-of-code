@@ -11,15 +11,14 @@ public class CustomRange {
         this.upperBound = Integer.parseInt(split[1]);
     }
 
-    public int getLowerBound() {
-        return lowerBound;
-    }
-
-    public int getUpperBound() {
-        return upperBound;
-    }
-
     public boolean containsRange(CustomRange range) {
         return (range.lowerBound >= this.lowerBound) && (range.upperBound <= this.upperBound);
+    }
+
+    public boolean isOverlapping(CustomRange range) {
+        return (
+                (range.lowerBound >= this.lowerBound) && (range.lowerBound <= this.upperBound) ||
+                        (range.upperBound >= this.lowerBound) && (range.upperBound <= this.upperBound)
+        );
     }
 }

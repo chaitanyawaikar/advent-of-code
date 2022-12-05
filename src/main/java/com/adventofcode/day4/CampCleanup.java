@@ -12,7 +12,7 @@ public class CampCleanup {
 
     private final static String INPUT_FILE = INPUT_FOLDER_PATH + "day4";
 
-    public long getTotalAssignmentPairs(String inputFile) {
+    public long getTotalAllInclusivePairs(String inputFile) {
         List<String> inputData = FileReader.readInputFile(inputFile);
 
         return inputData.stream().filter(x -> {
@@ -24,9 +24,21 @@ public class CampCleanup {
         }).count();
     }
 
+    public long getTotalOverlappingPairs(String inputFile) {
+        List<String> inputData = FileReader.readInputFile(inputFile);
+
+        return inputData.stream().filter(x -> {
+            String[] splitRangesByComma = x.split(COMMA_SEPARATOR);
+            CustomRange range1 = new CustomRange(splitRangesByComma[0]);
+            CustomRange range2 = new CustomRange(splitRangesByComma[1]);
+
+            return range1.isOverlapping(range2) || range2.isOverlapping(range1);
+        }).count();
+    }
+
     public static void main(String[] args) {
         CampCleanup cleanup = new CampCleanup();
-        long totalAssignmentPairs = cleanup.getTotalAssignmentPairs(INPUT_FILE);
+        long totalAssignmentPairs = cleanup.getTotalOverlappingPairs(INPUT_FILE);
         System.out.println(totalAssignmentPairs);
     }
 }
