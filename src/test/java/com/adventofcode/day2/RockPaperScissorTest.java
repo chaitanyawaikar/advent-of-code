@@ -2,7 +2,7 @@ package com.adventofcode.day2;
 
 import com.adventofcode.day2.models.GameMove;
 import com.adventofcode.day2.models.GameOutcome;
-import com.adventofcode.util.constants.Constants;
+import com.adventofcode.utils.constants.Constants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

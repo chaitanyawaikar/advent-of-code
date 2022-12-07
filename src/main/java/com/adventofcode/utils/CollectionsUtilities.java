@@ -1,4 +1,4 @@
-package com.adventofcode.util;
+package com.adventofcode.utils;
 
 import java.util.Collection;
 import java.util.List;

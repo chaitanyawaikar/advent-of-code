@@ -1,4 +1,4 @@
-package com.adventofcode.util;
+package com.adventofcode.utils;
 
 import com.adventofcode.day1.CalorieCounting;
 

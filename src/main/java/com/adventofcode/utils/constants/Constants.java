@@ -1,4 +1,4 @@
-package com.adventofcode.util.constants;
+package com.adventofcode.utils.constants;
 
 public final class Constants {
 

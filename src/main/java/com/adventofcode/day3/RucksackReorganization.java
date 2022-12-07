@@ -1,6 +1,6 @@
 package com.adventofcode.day3;
 
-import com.adventofcode.util.FileReader;
+import com.adventofcode.utils.FileReader;
 import org.assertj.core.util.VisibleForTesting;
 
 import java.util.HashSet;
@@ -9,8 +9,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static com.adventofcode.util.CollectionsUtilities.partitionBasedOnSize;
-import static com.adventofcode.util.constants.Constants.INPUT_FOLDER_PATH;
+import static com.adventofcode.utils.CollectionsUtilities.partitionBasedOnSize;
+import static com.adventofcode.utils.constants.Constants.INPUT_FOLDER_PATH;
 
 public class RucksackReorganization {
 

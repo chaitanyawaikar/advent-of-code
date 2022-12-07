@@ -1,6 +1,6 @@
 package com.adventofcode.day3;
 
-import com.adventofcode.util.constants.Constants;
+import com.adventofcode.utils.constants.Constants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

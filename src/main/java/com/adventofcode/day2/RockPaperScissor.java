@@ -2,14 +2,14 @@ package com.adventofcode.day2;
 
 import com.adventofcode.day2.models.GameMove;
 import com.adventofcode.day2.models.GameOutcome;
-import com.adventofcode.util.FileReader;
+import com.adventofcode.utils.FileReader;
 import org.assertj.core.util.VisibleForTesting;
 
 import java.util.List;
 
 import static com.adventofcode.day2.models.GameMove.fromString;
-import static com.adventofcode.util.constants.Constants.BLANK_SPACE;
-import static com.adventofcode.util.constants.Constants.INPUT_FOLDER_PATH;
+import static com.adventofcode.utils.constants.Constants.BLANK_SPACE;
+import static com.adventofcode.utils.constants.Constants.INPUT_FOLDER_PATH;
 
 public class RockPaperScissor {
 

@@ -1,10 +1,10 @@
 package com.adventofcode.day1;
 
-import com.adventofcode.util.FileReader;
+import com.adventofcode.utils.FileReader;
 
 import java.util.*;
 
-import static com.adventofcode.util.constants.Constants.INPUT_FOLDER_PATH;
+import static com.adventofcode.utils.constants.Constants.INPUT_FOLDER_PATH;
 import static java.util.Collections.reverseOrder;
 
 public class CalorieCounting {

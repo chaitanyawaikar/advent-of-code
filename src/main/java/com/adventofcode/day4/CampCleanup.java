@@ -1,12 +1,12 @@
 package com.adventofcode.day4;
 
 import com.adventofcode.day4.models.CustomRange;
-import com.adventofcode.util.FileReader;
+import com.adventofcode.utils.FileReader;
 
 import java.util.List;
 
-import static com.adventofcode.util.constants.Constants.COMMA_SEPARATOR;
-import static com.adventofcode.util.constants.Constants.INPUT_FOLDER_PATH;
+import static com.adventofcode.utils.constants.Constants.COMMA_SEPARATOR;
+import static com.adventofcode.utils.constants.Constants.INPUT_FOLDER_PATH;
 
 public class CampCleanup {
 
