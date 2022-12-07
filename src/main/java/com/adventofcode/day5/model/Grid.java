@@ -48,10 +48,11 @@ public class Grid {
         mapping.put(9, stack9);
     }
 
-    public void executeMoveInstruction(String moveInstruction) {
+    public void executeMoveInstruction(String moveInstruction, boolean preserveOrder) {
         Matcher matcher = Pattern.compile("\\d+").matcher(moveInstruction);
         Stack<Character> fromStack;
         Stack<Character> toStack;
+        Stack<Character> temporaryStack = new Stack<>();
         int quantityToBeMoved;
 
         ArrayList<Integer> extractedIntegers = new ArrayList<>(3);
@@ -62,11 +63,25 @@ public class Grid {
         fromStack = mapping.get(extractedIntegers.get(1));
         toStack = mapping.get(extractedIntegers.get(2));
 
-        while (quantityToBeMoved > 0) {
-            if (!fromStack.isEmpty()) {
-                toStack.push(fromStack.pop());
+        if (preserveOrder) {
+            int quantityToBeMoved1 = quantityToBeMoved;
+            while (quantityToBeMoved1 > 0) {
+                if (!fromStack.isEmpty()) {
+                    temporaryStack.push(fromStack.pop());
+                }
+                quantityToBeMoved1--;
             }
-            quantityToBeMoved--;
+            while (!temporaryStack.isEmpty()) {
+                toStack.push(temporaryStack.pop());
+            }
+        } else {
+            int quantityToBeMoved1 = quantityToBeMoved;
+            while (quantityToBeMoved1 > 0) {
+                if (!fromStack.isEmpty()) {
+                    toStack.push(fromStack.pop());
+                }
+                quantityToBeMoved1--;
+            }
         }
     }
 

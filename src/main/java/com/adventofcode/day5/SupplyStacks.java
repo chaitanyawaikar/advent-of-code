@@ -11,9 +11,21 @@ public class SupplyStacks {
         Grid grid = InputData.generateCustomGridInput();
         List<String> moveInstructions = InputData.getMoveInstructions();
 
+        // Part 1
         moveInstructions
-                .stream()
-                .forEach(grid::executeMoveInstruction);
+                .forEach(
+                        moveInstruction ->
+                                grid.executeMoveInstruction(moveInstruction, false)
+                );
         System.out.println(grid.getTopCrateOfGrid());
+
+        // Part 2
+        moveInstructions
+                .forEach(
+                        moveInstruction ->
+                                grid.executeMoveInstruction(moveInstruction, true)
+                );
+        System.out.println(grid.getTopCrateOfGrid());
+
     }
 }
