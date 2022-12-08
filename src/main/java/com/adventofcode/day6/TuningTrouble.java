@@ -4,9 +4,8 @@ import java.util.HashSet;
 
 public class TuningTrouble {
 
-    public int getFirstMarker(String inputString) {
+    public int getFirstMarker(String inputString, int marker) {
         int start = 0;
-        int marker = 4;
         while (marker < inputString.length()) {
             if (isStringHavingUniqueCharacter(inputString.substring(start, marker))) return marker;
             marker++;
