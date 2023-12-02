@@ -39,3 +39,6 @@ target/
 
 # IntelliJ
 out/
+
+#Input files
+src/main/resources/inputfiles/*
