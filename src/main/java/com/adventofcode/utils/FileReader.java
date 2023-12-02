@@ -1,6 +1,6 @@
 package com.adventofcode.utils;
 
-import com.adventofcode.day1.CalorieCounting;
+import com.adventofcode.year2022.day1.CalorieCounting;
 
 import java.io.IOException;
 import java.nio.file.Files;
